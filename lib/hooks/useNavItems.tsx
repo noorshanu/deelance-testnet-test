@@ -6,6 +6,7 @@ import type { NavItemInternal, NavItem, NavGroupItem } from 'types/client/naviga
 import config from 'configs/app';
 import { rightLineArrow } from 'lib/html-entities';
 import UserAvatar from 'ui/shared/UserAvatar';
+import { url } from 'inspector';
 
 interface ReturnType {
   mainNavItems: Array<NavItem | NavGroupItem>;
@@ -190,12 +191,12 @@ export default function useNavItems(): ReturnType {
       !config.UI.sidebar.hiddenLinks?.rpc_api && {
         text: 'RPC API',
         icon: 'RPC',
-        url: 'https://docs.blockscout.com/for-users/api/rpc-endpoints',
+        url: 'https://docs.deelance.com/getting-started/developer-guide/rpc',
       },
       !config.UI.sidebar.hiddenLinks?.eth_rpc_api && {
-        text: 'Eth RPC API',
+        text: 'Docs',
         icon: 'RPC',
-        url: ' https://docs.blockscout.com/for-users/api/eth-rpc',
+        url: ' https://docs.deelance.com/',
       },
     ].filter(Boolean);
 
@@ -243,6 +244,10 @@ export default function useNavItems(): ReturnType {
             text: 'Gas tracker',
             nextRoute: { pathname: '/gas-tracker' as const },
             isActive: pathname.startsWith('/gas-tracker'),
+          },
+          config.features.gasTracker.isEnabled && {
+            text: 'Fourm',
+            url:'https://forum.deelance.com/'
           },
           config.features.publicTagsSubmission.isEnabled && {
             text: 'Submit public tag',

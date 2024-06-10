@@ -35,44 +35,34 @@ const Footer = () => {
       icon: 'edit' as const,
       iconSize: '16px',
       text: 'Submit an issue',
-      url: issueUrl,
+      url: 'https://forum.deelance.com/',
     },
     {
       icon: 'social/canny' as const,
       iconSize: '20px',
       text: 'Feature request',
-      url: 'https://blockscout.canny.io/feature-requests',
+      url: 'https://forum.deelance.com/',
     },
     {
       icon: 'social/git' as const,
       iconSize: '18px',
       text: 'Contribute',
-      url: 'https://github.com/blockscout/blockscout',
+      url: '#',
     },
     {
       icon: 'social/twitter' as const,
       iconSize: '18px',
       text: 'X (ex-Twitter)',
-      url: 'https://www.twitter.com/blockscoutcom',
+      url: 'https://twitter.com/deelance_com',
     },
     {
       icon: 'social/discord' as const,
       iconSize: '24px',
       text: 'Discord',
-      url: 'https://discord.gg/blockscout',
+      url: 'https://discord.com/invite/vhH3Sbt9NQ',
     },
-    {
-      icon: 'discussions' as const,
-      iconSize: '20px',
-      text: 'Discussions',
-      url: 'https://github.com/orgs/blockscout/discussions',
-    },
-    {
-      icon: 'donate' as const,
-      iconSize: '20px',
-      text: 'Donate',
-      url: 'https://github.com/sponsors/blockscout',
-    },
+
+
   ];
 
   const frontendLink = (() => {
@@ -118,9 +108,9 @@ const Footer = () => {
   const renderProjectInfo = React.useCallback((gridArea?: GridProps['gridArea']) => {
     return (
       <Box gridArea={ gridArea }>
-        <Link fontSize="xs" href="https://www.blockscout.com">blockscout.com</Link>
+        <Link fontSize="xs" href="https://www.Deelance.com">Deelance.com</Link>
         <Text mt={ 3 } fontSize="xs">
-          Blockscout is a tool for inspecting and analyzing EVM based blockchains. Blockchain explorer for Ethereum Networks.
+        DeeLance is at the forefront of the revolution. With our decentralized approach, we're connecting freelancers and recruiters, leveraging the power of blockchain technology.
         </Text>
         <VStack spacing={ 1 } mt={ 6 } alignItems="start">
           { apiVersionUrl && (
@@ -168,7 +158,7 @@ const Footer = () => {
         >
           {
             ([
-              { title: 'Blockscout', links: BLOCKSCOUT_LINKS },
+              { title: 'Deelance', links: BLOCKSCOUT_LINKS },
               ...(linksData || []),
             ])
               .slice(0, colNum)
@@ -187,6 +177,7 @@ const Footer = () => {
   }
 
   return (
+ <>
     <Grid
       { ...containerProps }
       gridTemplateAreas={{
@@ -220,7 +211,14 @@ const Footer = () => {
       >
         { BLOCKSCOUT_LINKS.map(link => <FooterLinkItem { ...link } key={ link.text }/>) }
       </Grid>
+      
     </Grid>
+       <Grid  alignContent="center" justifyContent='center'>
+       <Text  fontSize='12px' textAlign='center'>
+        2024© DeeLance labs LTD | All Rights Reserved Ajeltake Road , Reg no: 119495 , Marshall Islands, info@deelance.com
+      </Text>
+       </Grid>
+ </>
   );
 };
 

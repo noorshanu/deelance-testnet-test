@@ -19,7 +19,7 @@ const Home = () => {
     <Box as="main">
       <Box
         w="100%"
-        background={ config.UI.homepage.plate.background }
+        background='#464646'
         borderRadius={{ base: 'md', lg: 'xl' }}
         px={{ base: 4, lg: 10 }}
         py={{ base: 3, lg: 8 }}
@@ -32,7 +32,7 @@ const Home = () => {
             fontSize={{ base: '18px', lg: '40px' }}
             lineHeight={{ base: '24px', lg: '48px' }}
             fontWeight={ 600 }
-            color={ config.UI.homepage.plate.textColor }
+            color='#40d98c'
           >
             {
               config.meta.seo.enhancedDataEnabled ?
@@ -49,7 +49,7 @@ const Home = () => {
       </Box>
       <Stats/>
       <ChainIndicators/>
-      <AdBanner mt={ 6 } mx="auto" display="flex" justifyContent="center"/>
+      {/* <AdBanner mt={ 6 } mx="auto" display="flex" justifyContent="center"/> */}
       <Flex mt={ 6 } direction={{ base: 'column', lg: 'row' }} columnGap={ 12 } rowGap={ 6 }>
         { rollupFeature.isEnabled && rollupFeature.type === 'zkEvm' ? <LatestZkEvmL2Batches/> : <LatestBlocks/> }
         <Box flexGrow={ 1 }>
