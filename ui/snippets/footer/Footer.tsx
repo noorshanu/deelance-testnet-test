@@ -1,10 +1,11 @@
 import type { GridProps } from '@chakra-ui/react';
-import { Box, Grid, Flex, Text, Link, VStack, Skeleton } from '@chakra-ui/react';
+import { Box, Grid, Flex, Text, Link, VStack, Skeleton,useColorModeValue  } from '@chakra-ui/react';
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import Telegram from 'icons/social/telega.svg'
 
 import type { CustomLinksGroup } from 'types/footerLinks';
-
+import Image from 'next/image';
 import config from 'configs/app';
 import type { ResourceError } from 'lib/api/resources';
 import useApiQuery from 'lib/api/useApiQuery';
@@ -61,8 +62,12 @@ const Footer = () => {
       text: 'Discord',
       url: 'https://discord.com/invite/vhH3Sbt9NQ',
     },
-
-
+    {
+      icon: Telegram,
+      iconSize: '18px',
+      text: 'Telegram',
+      url: 'https://t.me/deelance_com',
+    }
   ];
 
   const frontendLink = (() => {
@@ -104,11 +109,14 @@ const Footer = () => {
       </Flex>
     );
   }, []);
-
+  const logoSrc =  useColorModeValue("/static/logoLight.png", "/static/whitelogo.png");
   const renderProjectInfo = React.useCallback((gridArea?: GridProps['gridArea']) => {
     return (
       <Box gridArea={ gridArea }>
-        <Link fontSize="xs" href="https://www.Deelance.com">Deelance.com</Link>
+        <Link fontSize="xs" href="https://www.Deelance.com"> 
+        <Image src={logoSrc} alt=''   width={165}
+        height={165}/>
+        </Link>
         <Text mt={ 3 } fontSize="xs">
         DeeLance is at the forefront of the revolution. With our decentralized approach, we're connecting freelancers and recruiters, leveraging the power of blockchain technology.
         </Text>

@@ -43,19 +43,19 @@ const LogoFallback = ({ isCollapsed, isSmall }: { isCollapsed?: boolean; isSmall
 
 const NetworkLogo = ({ isCollapsed, onClick, className }: Props) => {
 
-  const logoSrc = useColorModeValue(config.UI.sidebar.logo.default, config.UI.sidebar.logo.dark || config.UI.sidebar.logo.default);
+  const logoSrc =  useColorModeValue("/static/logoLight.png", "/static/whitelogo.png");
   const iconSrc = useColorModeValue(config.UI.sidebar.icon.default, config.UI.sidebar.icon.dark || config.UI.sidebar.icon.default);
-  const darkModeFilter = { filter: 'brightness(0) invert(1)' };
-  const logoStyle = useColorModeValue({}, !config.UI.sidebar.logo.dark ? darkModeFilter : {});
-  const iconStyle = useColorModeValue({}, !config.UI.sidebar.icon.dark ? darkModeFilter : {});
+  // const darkModeFilter = { filter: 'brightness(0) invert(1)' };
+  // const logoStyle = useColorModeValue({}, !config.UI.sidebar.logo.dark ? darkModeFilter : {});
+  // const iconStyle = useColorModeValue({}, !config.UI.sidebar.icon.dark ? darkModeFilter : {});
 
   return (
     <Box
       className={ className }
       as="a"
       href={ route({ pathname: '/' }) }
-      width={{ base: '120px', lg: isCollapsed === false ? '120px' : '30px', xl: isCollapsed ? '30px' : '120px' }}
-      height={{ base: '24px', lg: isCollapsed === false ? '24px' : '30px', xl: isCollapsed ? '30px' : '24px' }}
+      width={{ base: 'auto', lg: isCollapsed === false ? '165px' : '30px', xl: isCollapsed ? '30px' : '165px' }}
+      height={{ base: '55px', lg: isCollapsed === false ? 'auto' : '30px', xl: isCollapsed ? '30px' : 'auto' }}
       display="inline-flex"
       overflow="hidden"
       onClick={ onClick }
@@ -70,17 +70,15 @@ const NetworkLogo = ({ isCollapsed, onClick, className }: Props) => {
         alt={ `${ config.chain.name } network logo` }
         fallback={ <LogoFallback isCollapsed={ isCollapsed }/> }
         display={{ base: 'block', lg: isCollapsed === false ? 'block' : 'none', xl: isCollapsed ? 'none' : 'block' }}
-        style={ logoStyle }
       />
       { /* small logo */ }
       <Image
         w="auto"
         h="100%"
-        src={ iconSrc }
+        src='/static/favicon.png'
         alt={ `${ config.chain.name } network logo` }
         fallback={ <LogoFallback isCollapsed={ isCollapsed } isSmall/> }
         display={{ base: 'none', lg: isCollapsed === false ? 'none' : 'block', xl: isCollapsed ? 'block' : 'none' }}
-        style={ iconStyle }
       />
     </Box>
   );
